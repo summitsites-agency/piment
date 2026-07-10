@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# raw source media — large 4K/portrait clips.
+# The compressed web loops + posters in public/ ARE committed and are what the site serves.
+media-src/
+
+# local env
+.env
+.env.local
+
+# logs / os / editor
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

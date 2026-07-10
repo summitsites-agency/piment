@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ============================================================
+   BRAND TOKENS — change the whole site's look from right here.
+   These become Tailwind classes automatically:
+   --color-flame  ->  bg-flame, text-flame, border-flame ...
+   ============================================================ */
+@theme {
+  --color-flame: #f43a17;   /* hot chili red — the main accent   */
+  --color-mango: #ffb01f;   /* warm yellow — secondary accent    */
+  --color-creme: #fff3e0;   /* light background                  */
+  --color-plum:  #21101f;   /* very dark plum — dark background  */
+  --color-basil: #1f7a4c;   /* fresh green accent                */
+  --color-rose:  #ffd4c4;   /* soft peach for small highlights   */
+
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-body: "Instrument Sans Variable", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles the smoothing */
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-creme);
+  color: var(--color-plum);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-flame);
+  color: var(--color-creme);
+}
+
+/* Fat, soft, slightly wonky display type — the brand voice */
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: "SOFT" 70, "WONK" 1, "opsz" 144;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+}
+
+/* Hollow (outlined) text, used in the footer wordmark */
+.text-stroke-creme {
+  -webkit-text-stroke: 2px var(--color-creme);
+  color: transparent;
+}
+
+/* ============================================================
+   MARQUEE — the scrolling text/photo bands.
+   The strip holds TWO copies of its content, and slides left
+   by exactly half its width, forever. Two copies + half slide
+   = a perfect seamless loop.
+   ============================================================ */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee var(--marquee-duration, 30s) linear infinite reverse;
+}
+.marquee-paused:hover .animate-marquee,
+.marquee-paused:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+/* Spinning circular badge in the hero corner */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+
+/* People who turn off motion in their system settings get a calm site */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-spin-slow {
+    animation: none;
+  }
+}
