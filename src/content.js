@@ -177,5 +177,5 @@ export const footer = {
     { label: 'Carrières', href: '#' },
     { label: 'Cartes cadeaux', href: '#' },
   ],
-  credit: 'Site by Summit Sites',
+  credit: 'This website is the property of, and was made by, Summit Sites Agency · © 2026.',
 }
