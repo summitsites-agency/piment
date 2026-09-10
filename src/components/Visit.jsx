@@ -121,7 +121,16 @@ export function Footer() {
             © {new Date().getFullYear()} {brand.name} — tous droits réservés
           </p>
           <p className="font-mono text-[10px] tracking-widest text-creme/50 uppercase">
-            {footer.credit} 🌶️
+            {footer.credit.before}{' '}
+            <a
+              href={footer.credit.href}
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-2 transition-colors hover:text-creme"
+            >
+              {footer.credit.studio}
+            </a>{' '}
+            {footer.credit.after} 🌶️
           </p>
         </div>
       </div>

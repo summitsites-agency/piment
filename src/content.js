@@ -177,5 +177,10 @@ export const footer = {
     { label: 'Carrières', href: '#' },
     { label: 'Cartes cadeaux', href: '#' },
   ],
-  credit: 'This website is the property of, and was made by, Summit Sites Agency · © 2026.',
+  credit: {
+    before: 'This website is the property of, and was made by,',
+    studio: 'mossimo Studios',
+    href: 'https://mossimo-studios.vercel.app',
+    after: '· © 2026.',
+  },
 }
