@@ -120,17 +120,27 @@ export function Footer() {
           <p className="font-mono text-[10px] tracking-widest text-creme/50 uppercase">
             © {new Date().getFullYear()} {brand.name} — tous droits réservés
           </p>
-          <p className="font-mono text-[10px] tracking-widest text-creme/50 uppercase">
-            {footer.credit.before}{' '}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] tracking-widest text-creme/50 uppercase">
             <a
               href={footer.credit.href}
               target="_blank"
               rel="noopener"
-              className="underline underline-offset-2 transition-colors hover:text-creme"
+              aria-label={footer.credit.studio}
+              className="group shrink-0"
             >
-              {footer.credit.studio}
-            </a>{' '}
-            {footer.credit.after} 🌶️
+              {/* Reversed one-colour mark: the plum footer would swallow the
+                  wordmark's black ink entirely. */}
+              <img
+                src="/mossimo-studios-reverse.png"
+                alt=""
+                width="900"
+                height="304"
+                className="h-[26px] w-auto transition-transform duration-500 ease-[cubic-bezier(.87,0,.13,1)] group-hover:-rotate-2 group-hover:scale-105 motion-reduce:transition-none"
+              />
+            </a>
+            <span>
+              {footer.credit.before} {footer.credit.studio} {footer.credit.after} 🌶️
+            </span>
           </p>
         </div>
       </div>
